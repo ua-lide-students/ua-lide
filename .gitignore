@@ -1,0 +1,6 @@
+###< symfony ###
+/var/
+/vendor/
+
+###< ide ###
+.vscode/
