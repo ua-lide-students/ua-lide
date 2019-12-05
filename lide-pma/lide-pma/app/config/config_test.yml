@@ -1,0 +1,20 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+    profiler:
+        collect: false
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
+
+swiftmailer:
+    disable_delivery: true
+
+lexik_jwt_authentication:
+    secret_key: '%kernel.project_dir%/config/jwt/private-test.pem'
+    public_key: '%kernel.project_dir%/config/jwt/public-test.pem'
