@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <title>Lide</title>
+    {# <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> #}
+    <link rel="stylesheet" href= "{{ asset('build/app.css') }}" type="text/css">
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but lide-ide doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="app">
+    <Home jwt="{{ jwt|e('html_attr') }}"
+          lide-project-manager-url="{{ pma_url|e('html_attr') }}"
+          lide-web-base-url="{{ web_url|e('html_attr') }}"
+          :current-user="{{ user|json_encode|e('html_attr') }}"
+    ></Home>
+</div>
+
+<script src="{{ asset('build/home.js') }}"></script>
+
+</body>
+</html>

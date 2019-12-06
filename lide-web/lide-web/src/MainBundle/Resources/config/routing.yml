@@ -1,0 +1,28 @@
+main_homepage:
+    path:     /
+    defaults: { _controller: MainBundle:Default:homeVue }
+
+ide:
+    path: /ide/{projectId}
+    defaults: {_controller: MainBundle:Default:showIde}
+    requirements:
+        projectId: '\d+'
+
+home:
+    path: /home
+    defaults: {_controller: MainBundle:Default:homeVue }
+
+language_info:
+    path:    /language_info
+    defaults: { _controller: MainBundle:Default:languageInfo }
+
+save_user_config:
+    path: /user_config
+    defaults: {_controller: MainBundle:User:saveUserConfiguration}
+
+api_login_check:
+    path: /api/login_check
+
+get_jwt:
+    path: /jwt
+    defaults: { _controller: MainBundle:User:getJwt }

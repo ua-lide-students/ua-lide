@@ -1,0 +1,136 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: "@MainBundle/Resources/config/services.yml" }
+
+parameters:
+    locale: fr
+
+framework:
+    #esi: ~
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.root_dir%/config/routing.yml'
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    #serializer: { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    trusted_proxies: ~
+    session:
+        gc_maxlifetime: 604800
+    fragments: ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    form_themes: ['bootstrap_3_layout.html.twig']
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver: pdo_mysql
+        host: '127.0.0.1'
+        port: '3306'
+        dbname: 'lidedb'
+        user: 'admin'
+        password: 'admin'
+        charset: UTF8
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+   transport: "%mailer_transport%"
+   auth_mode: "%mailer_auth_mode%"
+   host: "%mailer_host%"  
+   username: "%mailer_user%"
+   password: "%mailer_password%"
+   encryption: "%mailer_encryption%"
+   spool: { type: memory }
+   
+#configuration easy_admin
+easy_admin:
+    site_name: 'LIDE administration'
+    design:
+        menu: 
+            - label: 'Langages'
+              children: 
+                - {label: 'Langage', icon: 'language', entity: 'Langage', default: true}
+                - {entity: 'DetailLangage', label: 'DetailLangage', icon: 'info-circle'}
+            - {entity: 'Serveur', label: 'Serveur', icon: 'server'}
+            - {entity: 'User', label: 'User', icon: 'user'}
+            - {label: 'Retour au site', route: 'main_homepage' }
+    formats:
+        date: 'd/m/Y'
+        time: 'h:i A e'
+        datetime: 'd/m/Y h:i'
+    entities:
+        Langage:
+            class: MainBundle\Entity\Langage
+            label: Langage
+            name: Langage      
+        DetailLangage:
+            class: MainBundle\Entity\DetailLangage
+            label: Details
+            name: DetailLangage            
+            list:                
+                sort: ['ordre', 'ASC']      
+        Serveur:
+            class: MainBundle\Entity\Serveur
+            label: Serveur
+            name: Serveur
+        User:
+            class: MainBundle\Entity\User
+            label: Utilisateur
+            name: User
+            disabled_actions: ['new']
+            form:
+                fields:
+                    - { property: 'username'}
+                    - { property: 'email'}
+                    - { property: 'enabled' }
+                    - { property: 'roles'}
+                    - { property: 'consoleTheme'}
+                    - { property: 'aceTheme'}
+                    - { property: 'sizeEditeur', type: 'number' }
+            list:
+                fields:
+                    - { property: 'username', type: 'text' }
+                    - { property: 'email', type: 'text' }
+                    - { property: 'enabled' }
+                    - { property: 'lastLogin', type: 'date' }
+
+        
+fos_user:
+    firewall_name: main
+    db_driver: orm
+    user_class: MainBundle\Entity\User
+    from_email:
+        address: "projetlide@gmail.com"
+        sender_name: "LIDE"
+    service:
+        mailer: fos_user.mailer.twig_swift
+    registration:
+        confirmation:
+            enabled: true
+            from_email:
+                address: noreply@lide.com
+                sender_name: LIDE no-reply
+            template: 'email/registration.email.twig'
+
+lexik_jwt_authentication:
+  secret_key:       '%kernel.project_dir%/config/jwt/private.pem' # required for token creation
+  public_key:       '%kernel.project_dir%/config/jwt/public.pem'  # required for token verification
+  pass_phrase:      'your_secret_passphrase' # required for token creation, usage of an environment variable is recommended
+  token_ttl:        3600

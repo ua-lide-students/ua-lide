@@ -1,0 +1,40 @@
+@tailwind preflight;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@import '~vuetify/dist/vuetify.css';
+
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+@import "./_spinner";
+@import "./notifs";
+
+
+.v-chip--selected.file-chip {
+  border-bottom-width: 2px;
+}
+
+.drawerSideActive {
+  background-color: #535353;
+}
+
+.icons:hover {
+  opacity:.5;
+  visibility: visible;
+}
+
+@import './_blink';
+
+.cursor{
+  width: 3px;
+  background-color: antiquewhite;
+  color: antiquewhite;
+}
+
+// Make cursor blink when console is focused
+.console-focused .cursor {
+  -webkit-animation: blink-1 2s infinite both;
+  animation: blink-1 2s infinite both;
+}

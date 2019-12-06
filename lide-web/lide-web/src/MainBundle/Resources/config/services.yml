@@ -1,0 +1,16 @@
+services:
+    maindbundle.contains_mail_validator:
+        class: MainBundle\Validator\Constraints\ContainsMailValidator
+        arguments: ["%mails_suffixe%"]
+        tags:
+            - { name: validator.constraint_validator }
+    docker.subscriber:
+        class: MainBundle\EventListener\DockerSubscriber
+        arguments : []
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+    acme_api.event.jwt_created_listener:
+        class: MainBundle\EventListener\JWTCreatedListener
+        arguments: [ '@request_stack' ]
+        tags:
+        - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }

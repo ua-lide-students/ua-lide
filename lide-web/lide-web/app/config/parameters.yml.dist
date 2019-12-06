@@ -1,0 +1,35 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host: localhost
+    database_port: ~
+    database_name: lide
+    database_user: ~
+    database_password: ~
+
+    mailer_transport: smtp
+    mailer_host: smtp.gmail.com
+    mailer_user: ~
+    mailer_password: ~
+    mailer_auth_mode: login
+    mailer_encryption: ssl
+
+    # A secret key that's used to generate certain security-related tokens
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+    ssh_host: 127.0.0.1
+    ssh_login: etudiant
+    ssh_password: ~
+    ssh_port: 22
+
+    mails_suffixe: 
+        - etud.univ-angers.fr
+        - univ-angers.fr
+
+    # Url the application is accessed with
+    base_url: 'http://lide.test/'
+    # Base for the lide pma url
+    lide_pma_url: 'http://192.168.50.5/app_dev.php/'
+    #Url of the websocket server
+    ws_url: 'http://127.0.0.1:7001'
