@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: lidepma_db
+    database_user: lidepma
+    database_password: lidepma
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt
+    websocket_server_port: 7001
+    projects_folder: /lide_storage
+    jwt_key: '%kernel.project_dir%/config/jwt/public.pem'
+    root_users_filesystem: /lide_storage
