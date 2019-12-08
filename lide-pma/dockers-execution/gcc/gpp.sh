@@ -23,5 +23,5 @@ if [ -x $executable ]
 then
 	./${executable} ${arguments}
 	res=$?
-	echo "LIDE ==== Fin du programme avec le code $res====="
+	echo "==== Fin du programme avec le code $res====="
 fi

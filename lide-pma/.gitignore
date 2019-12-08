@@ -1,7 +1,0 @@
-###< symfony ###
-var/
-vendor/
-
-###< ide ###
-.vscode/
-.idea/

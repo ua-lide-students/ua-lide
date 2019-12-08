@@ -1,5 +1,5 @@
 {
-    "name": "ualide/lide-web",
+    "name": "lide",
     "license": "GPL",
     "type": "project",
     "autoload": {

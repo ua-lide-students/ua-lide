@@ -37,10 +37,10 @@ class DockerStartCommandBuilder extends AbstractBashCommandBuilder
 
     protected function buildCommand()
     {
-        $builder = new BashCommandBuilder('docker run ');
-        
-        $builder->addRawArgument('--rm');
+        $builder = new BashCommandBuilder('docker run');
 
+        $builder->addRawArgument('--rm=true');
+        
         if ($this->identifier) {
             $builder->addFlagArgument('--name', $this->identifier);
         }

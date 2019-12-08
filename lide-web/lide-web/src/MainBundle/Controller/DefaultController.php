@@ -39,7 +39,6 @@ class DefaultController extends Controller
         /** @var Collection|Langage[] $environments */
         $environments = $em->getRepository('MainBundle:Langage')->findByActif(true);
 
-
         return $this->render('MainBundle:Default:idevue.html.twig', [
             'user_config' => $user->getConfiguration(),
             'jwt' => $jwtManager->create($user),

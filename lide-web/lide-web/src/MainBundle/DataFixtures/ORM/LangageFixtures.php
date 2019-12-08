@@ -28,7 +28,7 @@ class LangageFixtures extends Fixture
 
             $langage1 = new Langage();
             $langage1->setNom("c");
-            $langage1->setCompilateur("g++");
+            $langage1->setCompilateur("gcc");
             $langage1->setDockerfile("titi");
             $langage1->setDockerName("gcc");
             $content1 = file_get_contents("src/MainBundle/Resources/script/exec_c.sh");
