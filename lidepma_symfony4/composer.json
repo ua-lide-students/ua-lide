@@ -1,0 +1,79 @@
+{
+    "name": "ualide/lidepma",
+    "version": "1.0.0",
+    "license": "GPL",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"            
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "ext-posix": "*",
+        "cboden/ratchet": "*",
+        "doctrine/doctrine-bundle": "*",
+        "doctrine/orm": "*",
+        "friendsofsymfony/rest-bundle": "2.1",
+        "incenteev/composer-parameter-handler": "*",
+        "lexik/jwt-authentication-bundle": "^2.6",
+        "nelmio/cors-bundle": "*",
+        "sensio/framework-extra-bundle": "^5.5",
+        "symfony/asset": "^4.3",
+        "symfony/console": "^4.3",
+        "symfony/filesystem": "^4.3",
+        "symfony/flex": "*",
+        "symfony/form": "^4.3",
+        "symfony/framework-bundle": "^4.3",
+        "symfony/monolog-bundle": "3.4",
+        "symfony/orm-pack": "^1.0",
+        "symfony/polyfill-apcu": "*",
+        "symfony/swiftmailer-bundle": "^3.3",
+        "symfony/symfony": "^4.3",
+        "symfony/translation": "^4.3",
+        "symfony/twig-pack": "^1.0",
+        "symfony/validator": "^4.3"
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "*",
+        "friendsofphp/php-cs-fixer": "*",
+        "laravel/homestead": "*",
+        "phpunit/phpunit": "*",
+        "symfony/dotenv": "*",
+        "symfony/maker-bundle": "*",
+        "symfony/phpunit-bridge": "*",
+        "symfony/profiler-pack": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+
+        },        
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": null
+    }
+}

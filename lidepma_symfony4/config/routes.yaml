@@ -1,0 +1,8 @@
+docker_manager:
+    path: /api
+    controller: App\Controller\DockerManagerController::index
+
+
+api:
+    resource: '../src/Controller/'
+    type: rest
