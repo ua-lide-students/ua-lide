@@ -1,0 +1,10 @@
+.notif {
+    @apply p-2 bg-white border rounded-lg bg-grey-lightest mb-2;
+    filter:alpha(opacity=50);
+}
+
+.notif-success{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(65, 184, 65)
+}
